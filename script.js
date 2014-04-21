@@ -157,7 +157,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
             }
             function f_votelggr (obj){
                     if (obj.vote != 1){
-                    API.addChatLog(obj.user.username + " meh'd this track", true);
+                    API.chatLog(obj.user.username + " meh'd this track", true);
                 }
             }
             API.on(API.VOTE_UPDATE, f_votelggr);
