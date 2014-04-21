@@ -162,7 +162,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
             }
 
             function f_votelggr (obj) {
-                if (obj.vote !=2) {
+                if (obj.grab !=) {
              API.sendChat("/em: " + obj.user.username + " grab this song!", true);
             }
            }
