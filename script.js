@@ -157,9 +157,15 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
             }
             function f_votelggr (obj){
                     if (obj.vote != 1){
-                    API.sendChat(obj.user.username + " meh'd this track", true);
+                    API.chatLog(obj.user.username + " meh'd this track", true);
                 }
             }
+
+            function f_votelggr (obj) {
+                if (obj.vote !=2) {
+             API.sendChat("/em: " + obj.user.username + " grab this song!", true);
+            }
+           }
             API.on(API.VOTE_UPDATE, f_votelggr);
             API.on(API.CHAT, f_chtlggr);
             // End of chat logger
