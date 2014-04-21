@@ -85,7 +85,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
         },
 
         updateQueueStatus: function() {            
-            if(API.getWaitListPosition() == '0') {
+            if(API.getWaitListPosition() == '1') {
                 radiantScript.addChatLog('Get ready ' + this.userInfo.username + ', you\'re about to play!', 'aqua');
                 $('#waitlist-button').addClass('blue-bg');     
                 radiantScript.playChatSound();   
@@ -120,8 +120,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
                 },function(){
                     $('#tooltip').remove();
                 });         
-            $('#dj-booth').append('<div id="rmbooth" style="background-image: url(http://radiantedm.com/rmscript/img/djbooth.png);"></div>');
-            $(".background").find('img').attr('src','http://radiantedm.com/rmscript/img/radiant.music.playback1.png');
+            $(".background").find('img').attr('src','http://i.imgur.com/3ez0hdD.png');
 
             cleanASCII = function(a) {
               var b = a.split("&#");
@@ -158,7 +157,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
             }
             function f_votelggr (obj){
                     if (obj.vote != 1){
-                    API.chatLog(obj.user.username + " meh'd this track", true);
+                    API.sendChat(obj.user.username + " meh'd this track", true);
                 }
             }
             API.on(API.VOTE_UPDATE, f_votelggr);
@@ -208,8 +207,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
                     API.moderateForceSkip();
                 }
                 if (value == '/5') {
-                    API.chatLog("Status set to 5 (Bugged)");
-                    $.ajax({ type: 'POST', url: 'http://plug.dj/_/gateway/user.set_status', contentType: 'application/json', data: '{ "service": "user.set_status", "body": ["5"] }' });
+                    API.chatLog("Status set to 5 (Bugged)"); $.ajax({ type: 'POST', url: 'http://plug.dj/_/gateway/user.set_status', contentType: 'application/json', data: '{ "service": "user.set_status", "body": ["5"] }' });
                 }
                 if (value == '/4') {
                     API.chatLog("Status set to 4 (Idle)");
@@ -229,20 +227,21 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
                 }
                 if (value == '/0') {
                     API.chatLog("Status set to 0 (Available)");
-                    $.ajax({ type: 'POST', url: 'http://plug.dj/_/gateway/user.set_status', contentType: 'application/json', data: '{ "service": "user.set_status", "body": ["0"] }' });
+                    $.ajax({ type
+                   : 'POST', url: 'http://plug.dj/_/gateway/user.set_status', contentType: 'application/json', data: '{ "service": "user.set_status", "body": ["0"] }' });
                 }
             }
         },
 
     }           
 
-    console.log('Loaded Radiant Script v' + radiantScript.version);       
-    radiantScript.addChatLog('Running Radiant Script v' + radiantScript.version, 'aqua');
+    console.log('Loaded Lazyroom Script v' + radiantScript.version);       
+    radiantScript.addChatLog('Running Lazyroom Script v' + radiantScript.version, 'aqua');
     radiantScript.addChatLog('Staff only. Don\'t share!', 'orange');   
     radiantScript.init();  
     var plugCubed;
     var content = '<section id="radiantscript">\
-        <h3>Radiant Script</h3>\
+        <h3>Lazyroom Script</h3>\
         <p class="version">bookmarklet for plug.dj</p>\
         <p>Auto Woot?</p>\
         <div class="onoffswitch">\
@@ -260,7 +259,7 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
                 <div class="onoffswitch-switch"></div>\
             </label>\
         </div>\
-        <p class="version">Staff only Script!</p>\
+        <p class="version">Script!</p>\
         <p class="version">version ' + radiantScript.version + '</p>\
     </section>';
     var content2 = '<section id="radiantscriptRight">\
@@ -268,14 +267,14 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
     <div id="socialrm-tw"></div>\
     </section>';
 
-    $('body').prepend('<link rel="stylesheet" type="text/css" id="radiantscript-css" href="http://radiantedm.com/plugdj/radiantscript.css?v=' + radiantScript.version + '" />');  
+    $('body').prepend('<link rel="stylesheet" type="text/css" id="radiantscript-css" href="http://dl.dropboxusercontent.com/s/4ou90y8sx8q2kmk/radiantscript.css?v=' + radiantScript.version + '" />');  
     $('#room').append(content);     
     $('#room').append(content2); 
 
     $('#checkbox-autowoot').on('click', function() { radiantScript.toggleAutoWoot();  });   
     $('#checkbox-pointwhore').on('click', function() { radiantScript.togglePointWhore();  }); 
-    $('#socialrm-fb').on('click', function() { window.open('http://facebook.com/RadiantEDM');  }); 
-    $('#socialrm-tw').on('click', function() { window.open('http://twitter.com/RadiantEDM');  }); 
+    $('#socialrm-fb').on('click', function() { window.open('http://facebook.com/NikhilJangid007');  }); 
+    $('#socialrm-tw').on('click', function() { window.open('http://twitter.com/Nikhilisbest');  }); 
 
     $('#chat-messages').on('click', '.timestamp', function() {
     if ($(this).parent().find('.delete-button span').length === 0) {
@@ -298,8 +297,8 @@ if (API.enabled && $("#radiantscript-css").length <= 0) {
 }
 else {
     $('#radiantscript').fadeIn();
-    console.log('Radiant Script v' + radiantScript.version + ' already loaded');
-    API.chatLog('Radiant Script v' + radiantScript.version + ' already loaded', true);    
+    console.log('Lazyroom Script v' + radiantScript.version + ' already loaded');
+    API.chatLog('Lazyroom Script v' + radiantScript.version + ' already loaded', true);    
 }
 if (plugCubed === undefined) {
     setTimeout(function() { 
